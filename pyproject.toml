@@ -10,9 +10,15 @@ dependencies = [
     "python-dotenv>=1.2.4",
 ]
 
-# [project.scripts]
-# sis-creditos = "sis_creditos:main"
+[dependency-groups]
+dev = [
+    "taskipy>=1.14.1",
+]
 
-# [build-system]
-# requires = ["uv_build>=0.13.1,<0.14.0"]
-# build-backend = "uv_build"
+[tool.taskipy.tasks]
+dev = "python manage.py runserver"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+check = "python manage.py check"
+test = "python manage.py test"
+
